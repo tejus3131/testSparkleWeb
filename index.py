@@ -20,4 +20,4 @@ flask_app = Flask(__name__)
 app = Server(flask_app, base, cssDict, jsDict)
 
 if __name__ == "__main__":
-    app.run()
+    flask_app.run(port=5300)
