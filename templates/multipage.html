@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Open Page by clicking a button without loading.</h1><br>
+<button class="btn btn-primary"
+    onclick=" {{ 'page'| load(title='Page 1', template='page1.html', args={}, reload=[]) }}"> Page1 </button>
+<button class="btn btn-primary"
+    onclick=" {{ 'page'| load(title='Page 2', template='page2.html', args={}, reload=[]) }}"> Page2 </button>
+{% endblock %}

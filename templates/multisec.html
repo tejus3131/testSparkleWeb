@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Open Section by clicking a button without loading.</h1>
+<p id="change" class="section">
+    This section will change on click on the button.
+</p>
+<button class="btn btn-primary"
+    onclick=" {{ 'section'| load(title='Section 1', target_id='change', template='section1.html', args={}, reload=[]) }}"> Section1 </button>
+<button class="btn btn-primary"
+    onclick=" {{ 'section'| load(title='Section 2', target_id='change', template='section2.html', args={}, reload=[]) }}"> Section2 </button>
+{% endblock %}

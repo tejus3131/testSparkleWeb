@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkleWeb</title>
+</head>
+
+<body>
+    <nav class="fixed-top navbar navbar-expand-lg border-bottom border-dark-subtle" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">SparkleWeb</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="nav-link"
+                            onclick=" {{ 'section'| load(title='Home', target_id='window', template='home.html', args={}, reload=[]) }}">
+                            Home</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link"
+                            onclick=" {{ 'page'| load(title='Page Loader', template='multipage.html', args={}, reload=[]) }}">Page
+                            Loader</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link"
+                            onclick=" {{ 'page'| load(title='Page Loader', template='multisec.html', args={}, reload=[]) }}">Section
+                            Loader</button>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><button class="nav-link"
+                                    onclick=" {{ 'section'| load(title='About', target_id='window', template='about.html', args={}, reload=[]) }}">
+                                    About</button>
+                            </li>
+                            <li><button class="nav-link"
+                                    onclick=" {{ 'section'| load(title='Contact', target_id='window', template='contact.html', args={}, reload=[]) }}">
+                                    Contact</button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="window" class="contentMargin">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <nav class="navbar fixed-bottom bg-body-tertiary border-top border-dark-subtle">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">SparkleWeb</a>
+          <p>Designed By :- <a class="navbar-link" href="/">Tejus Gupta</a></p>
+        </div>
+      </nav>
+
+</body>
+
+</html>
