@@ -56,15 +56,28 @@ class Server():
             "jsDict":{},
             "index":None
         }
-        try:
-            host = "https://sparkleweb.vercel.app/index"
-            indexPage = requests.post(host).text
-        except Exception as e:
-            indexPage = f'''<div style="text-align: center;">
-    <h1>Invalid Syntax</h1>
-    <br>
-    {host} is not responding currently<br><br>{str(e)}
-</div>'''
+        indexPage = '''<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://sparkleweb.vercel.app/static/script.js"></script>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <script>
+        var siteData = {{ json_data| safe }};
+        var start_data = {{ start_data| safe }}
+        init(siteData.route, siteData.cssDict, siteData.jsDict);
+        start(start_data.template, start_data.title, start_data.args, start_data.reload);
+    </script>
+    <link rel="stylesheet" href="https://sparkleweb.vercel.app/static/styles.css">
+</head>
+
+<body>
+    <div id="mainServerBody"></div>
+</body>
+
+</html>'''
         self.config(index=indexPage)
 
     def setIndex(self, template:str , title:str | None = "Home", args:dict |None = {}, reload:list | None = []):

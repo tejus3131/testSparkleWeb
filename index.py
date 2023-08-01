@@ -1,7 +1,7 @@
-import SparkleWeb
+from SparkleWeb import Server
 from datetime import datetime
 
-server = SparkleWeb.Server()
+server = Server()
 
 server.setCss({
     "customCSS":"http://127.0.0.1:5300/static/custom.css",
@@ -20,4 +20,4 @@ server.setIndex("start.html",
                 ["customJS"])
 
 if __name__ == "__main__":
-    server.run(debug=True)
+    server.run()
