@@ -1,8 +1,6 @@
 from flask import jsonify, render_template, request, render_template_string, Flask, Blueprint
 from flask_cors import CORS
 import json
-import requests
-import os
 
 class Server():
     '''
@@ -41,8 +39,7 @@ class Server():
         '''
         Constructor to initialize the server instance and set up the necessary configurations.
         '''
-        root_directory = os.getcwd()
-        self.app = Flask(__name__, template_folder=os.path.join(root_directory, "templates"), static_folder=os.path.join(root_directory, "static"))
+        self.app = Flask(__name__)
         CORS(self.app)
         self.app.jinja_env.filters['load'] = self.load
         self.app.add_url_rule('/', 'index', self.index, methods=['GET'])
