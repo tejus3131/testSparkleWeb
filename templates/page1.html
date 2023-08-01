@@ -1,6 +1,7 @@
 <div class="marginPage">
     <h1>This is Page 1</h1>
+    <p>Server was started at "{{ args.time }}"</p>
     <button class="btn btn-success"
-        onclick=" {{ 'page'| load(title='Page Loader', template='multipage.html', args={}, reload=[]) }}">Go
+        onclick=" {{ 'page'| load(title='Page Loader', template='multipage.html', args={'time':args.time}, reload=['customJS']) }}">Go
         Back</button>
 </div>

@@ -5,7 +5,8 @@ server = SparkleWeb.Server()
 
 server.setCss({
     "customCSS":"http://127.0.0.1:5300/static/custom.css",
-    "bootstrap":"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    "bootstrap":"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css",
+    "Beginner":"https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap"
     })
 
 server.setJs({
@@ -13,7 +14,7 @@ server.setJs({
     "bootstrap":"https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     })
 
-server.setIndex("index.html", 
+server.setIndex("start.html", 
                 "SparkleWeb",
                 {"time":datetime.now().isoformat()},
                 ["customJS"])

@@ -1,0 +1,8 @@
+<div class="d-flex justify-content-center align-items-center flex-column" style="height: 100vh;" id="start">
+    <h1 class="fw-bold font-monospace" style="font-size: 100px;">SparkleWeb</h1>
+    <p class="fs-1" style="font-family: 'Edu SA Beginner', cursive;">Where Simplicity Meets Speed!</p>
+    <button class="btn btn-outline-secondary mt-5" style="width: 400px;"
+        onclick=" {{ 'page'| load(title='Home', template='index.html', args={'time':args.time}, reload=['customJS']) }}">
+        Get Started</button>
+    <span class="fs-6 fw-light fst-italic mt-3" id="clock" data-current-time="{{ args.time }}"><br></span>
+</div>

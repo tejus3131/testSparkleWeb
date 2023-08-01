@@ -8,47 +8,41 @@
 </head>
 
 <body>
-    <nav class="fixed-top navbar navbar-expand-lg border-bottom border-dark-subtle" style="background-color: #e3f2fd;">
+    <nav class="fixed-top navbar navbar-expand-lg navbar-primary border-bottom border-dark-subtle"
+        style="background-color: #e3f2fd;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">SparkleWeb</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-brand nav-link"
+                onclick=" {{ 'page'| load(title='SparkleWeb', template='start.html', args={'time':args.time}, reload=['customJS']) }}">
+                SparkleWeb</button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <button class="nav-link"
-                            onclick=" {{ 'section'| load(title='Home', target_id='window', template='home.html', args={}, reload=['customJS']) }}">
+                            onclick=" {{ 'section'| load(title='Home', target_id='window', template='home.html', args={}, reload=[]) }}">
                             Home</button>
                     </li>
                     <li class="nav-item">
                         <button class="nav-link"
-                            onclick=" {{ 'page'| load(title='Page Loader', template='multipage.html', args={}, reload=[]) }}">Page
+                            onclick=" {{ 'page'| load(title='Page Loader', template='multipage.html', args={'time':args.time}, reload=['customJS']) }}">
+                            Page
                             Loader</button>
                     </li>
                     <li class="nav-item">
                         <button class="nav-link"
-                            onclick=" {{ 'page'| load(title='Page Loader', template='multisec.html', args={}, reload=[]) }}">Section
+                            onclick=" {{ 'section'| load(title='Section Loader', target_id='window', template='multisec.html', args={}, reload=[]) }}">Section
                             Loader</button>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            More
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><button class="nav-link"
-                                    onclick=" {{ 'section'| load(title='About', target_id='window', template='about.html', args={}, reload=[]) }}">
-                                    About</button>
-                            </li>
-                            <li><button class="nav-link"
-                                    onclick=" {{ 'section'| load(title='Contact', target_id='window', template='contact.html', args={}, reload=[]) }}">
-                                    Contact</button>
-                            </li>
-                        </ul>
+                    <li class="nav-item">
+                        <button class="nav-link"
+                            onclick=" {{ 'section'| load(title='About', target_id='window', template='about.html', args={}, reload=[]) }}">
+                            About</button>
                     </li>
                 </ul>
+                <span class="navbar-text" id="clock" data-current-time="{{ args.time }}"></span>
             </div>
         </div>
     </nav>
@@ -61,10 +55,12 @@
 
     <nav class="navbar fixed-bottom bg-body-tertiary border-top border-dark-subtle">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">SparkleWeb</a>
-          <p>Designed By :- <a class="navbar-link" href="/">Tejus Gupta</a></p>
+            <button class="navbar-brand nav-link"
+                onclick=" {{ 'page'| load(title='SparkleWeb', template='start.html', args={'time':args.time}, reload=['customJS']) }}">
+                SparkleWeb</button>
+            <p>Designed By :- <a class="navbar-link" href="/">Tejus Gupta</a></p>
         </div>
-      </nav>
+    </nav>
 
 </body>
 
